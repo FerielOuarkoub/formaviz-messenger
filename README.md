@@ -102,7 +102,7 @@ this api allows us to connect with rabbitmq server, send a message or again cons
 RabbitMq is a messaging system for communicating between different systems. It uses the AMPQ protocol.
 The Messenger API will be the consumer of messages while the API Training (Back) will be the producers.
 
-![rabbit working](https://www.rabbitmq.com/img/tutorials/python-six.png)
+![rabbit working](https://blog.eleven-labs.com/assets/2018-03-11-rabbitmq-partie-1-les-bases/rabbitmq-broker.jpg)
 
 The producer is responsible for creating the message and sending it to an exchange. An exchange is a routing engine. Depending on the binding, the exchange will route to the queues.
 The consumer, meanwhile, retrieves the message in the stack and then performs a treatment depending on the type of message.
@@ -121,15 +121,21 @@ We need to define the type of routing.
 
    * Direct Exchange Routing
   
+     ![rabbit direct routing ](https://blog.eleven-labs.com/assets/2018-03-11-rabbitmq-partie-1-les-bases/rabbitmq-exchange-direct.jpg)
+     
      Direct routing sends messages to the queues based on a routing key. The routing key is a message attribute added in the message          header by the producer.
      
    * Fanout Exchange Routing
      
      The exchange distributes to all the tails corresponding to the binding.
      
+     ![rabbit exchange routing ](https://blog.eleven-labs.com/assets/2018-03-11-rabbitmq-partie-1-les-bases/rabbitmq-exchange-fanout.jpg)
+     
    * Topic Exchange
      
      The topic exchange redirects the message to the tails for which the "routing key" corresponding to the patterns.
+     
+      ![rabbit exchange routing ](https://blog.eleven-labs.com/assets/2018-03-11-rabbitmq-partie-1-les-bases/rabbitmq-exchange-topic.jpg)
 
 
 We chose direct routing to simplify our code. The filtering will be done by rabbitmq and not in our code. As a result, we chose to set up for each feature a queue for direct routing. In addition, this would allow the tails not to be filled quickly.
@@ -140,6 +146,8 @@ You can find the characteristics of the stack above.
 ***********************************
 
 To answer the producer, we will use the remote procedure call (RPC) pattern. A RPC allows you to send a message to a queue and wait for the answer.
+
+![rpc](https://www.rabbitmq.com/img/tutorials/python-six.png)
 
 The producer sends a message in the queue \' rpc_queue \' with the option reply_to which allows to send the answer in a queue and the key of \' correlation_id \' which makes it possible to associate the request of the producer with the response of the consumer.    
     
