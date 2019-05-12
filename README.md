@@ -141,3 +141,7 @@ To answer the producer, we will use the remote procedure call (RPC) pattern. A R
 
 The producer sends a message in the queue \' rpc_queue \' with the option reply_to which allows to send the answer in a queue and the key of \' correlation_id \' which makes it possible to associate the request of the producer with the response of the consumer.    
     
+****************************
+8. Additionnal informations
+****************************
+ The server's URL :  amqp://boowxrlb:L16RP-RTygwePbTrHb1uPOnsPDIPWIiq@bear.rmq.cloudamqp.com/boowxrlb
