@@ -102,6 +102,8 @@ this api allows us to connect with rabbitmq server, send a message or again cons
 RabbitMq is a messaging system for communicating between different systems. It uses the AMPQ protocol.
 The Messenger API will be the consumer of messages while the API Training (Back) will be the producers.
 
+![rabbit working] (https://docs.google.com/document/d/14-NYOkPH1oaXACLyM7Raof2eJc1fI1rdgoRASOsskmc/edit#heading=h.nfy5wluuw6yk)
+
 The producer is responsible for creating the message and sending it to an exchange. An exchange is a routing engine. Depending on the binding, the exchange will route to the queues.
 The consumer, meanwhile, retrieves the message in the stack and then performs a treatment depending on the type of message.
 In our API, it will have several types of messages:
